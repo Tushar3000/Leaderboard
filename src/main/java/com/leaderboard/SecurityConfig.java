@@ -29,7 +29,7 @@ public class SecurityConfig {
         return new UserInfoService(repo, passwordEncoder);
     }
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http,AuthenticationProvider authenticationProvider)
+    public SecurityFilterChain filterChain(HttpSecurity http,AuthenticationProvider authenticationProvider) throws Exception
     {
         return http
         .authorizeHttpRequests((auth)->auth
@@ -50,7 +50,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration config)
+    AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception
     {
 
         return config.getAuthenticationManager();
